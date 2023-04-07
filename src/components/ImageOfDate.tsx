@@ -1,20 +1,27 @@
 import { ImageProps } from '@/utils/types';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { IoMdArrowRoundBack } from 'react-icons/io'
 
 const ImageOfDate = ({ image }: ImageProps) => {
+  const router = useRouter()
+
+  const onBackHandler = () => {
+    router.push('/')
+  }
   return (
     <>
-      <div className='flex flex-col items-center justify-center w-full gap-2 p-2 text-white'>
+      <div className='relative flex flex-col items-center justify-center w-full gap-2 p-2 text-white'>
+        <button onClick={onBackHandler} className='absolute flex items-center justify-center w-10 h-10 p-2 text-2xl text-black bg-white rounded-full top-4 left-2'><IoMdArrowRoundBack /></button>
         <h1>{image.title}</h1>
         <h2>{image.date}</h2>
-        <div className='relative flex flex-col p-2'>
+        <div className='relative w-[800] h-[600] flex flex-col p-2'>
           {image.media_type === 'image' ? (
             <Image
-              className='w-auto h-auto border border-slate-400 rounded-3xl'
+              className='border border-slate-400 rounded-3xl'
               src={image.url}
               alt={image.title}
-              width={800}
-              height={600}
+              fill
               priority
             />
           ) : (
