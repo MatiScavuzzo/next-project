@@ -6,7 +6,6 @@ import { endDate, tenDaysLess } from '@/utils/date';
 import { HomeProps } from '@/utils/types';
 import ImageOfTheDay from '@/components/ImageofTheDay';
 import LastTenDaysImages from '@/components/LastTenDaysImages';
-import SearchBar from '@/components/SearchBar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +19,6 @@ export default function Home({ imageOfTheDay, last10DaysImages }: HomeProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className='flex flex-col items-center justify-center p-2 text-white'>
-        <SearchBar className='flex p-2 text-black bg-white rounded-2xl' />
         <Article>
           <ImageOfTheDay date={imageOfTheDay.date} url={imageOfTheDay.url} title={imageOfTheDay.title} />
         </Article>

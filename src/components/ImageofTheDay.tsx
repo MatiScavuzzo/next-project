@@ -7,13 +7,14 @@ const ImageOfTheDay = ({ title, url, date }: any) => {
     <>
       <h1 className='font-bold underline underline-offset-2'>Imágen del día</h1>
       <h2>{title}</h2>
-      <div className='relative w-[800px] h-[600px]'>
+      <div className='p-2'>
         <Image
           onClick={() => router.push(`/image/${date}`)}
-          className='w-auto h-auto border cursor-pointer border-slate-300 rounded-2xl'
+          className='object-contain border cursor-pointer border-slate-300 rounded-2xl'
           src={url}
           alt={title}
-          fill
+          width={960}
+          height={640}
           priority
         />
       </div>
